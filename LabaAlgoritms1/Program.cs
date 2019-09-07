@@ -166,14 +166,8 @@ namespace LabaAlgoritms1
         }
         static void DeletePerson(ref PersonList personList)
         {
-            Console.Clear();          
-            Console.WriteLine("List of people:");
-            
-            else
-            {
-                Console.Clear();
-                Console.WriteLine("No people was added.\n");
-            }
+            Console.Clear();
+            ShowTheList(ref personList);
             Console.WriteLine("Please, enter index of person that you want to delete:");
             string n = Console.ReadLine();
             int index;
@@ -186,13 +180,12 @@ namespace LabaAlgoritms1
                 }
                 else
                 {
-                    Person[] newPerson = personList.DeletePerson(index + 4);
+                    personList.DeletePerson(index + 4);
                     Console.Clear();
                     Console.WriteLine("Person is deleted.\n");
 
                 }
             }
-
             else
             {
                 Console.Clear();
