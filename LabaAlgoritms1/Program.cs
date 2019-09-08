@@ -23,6 +23,7 @@ namespace LabaAlgoritms1
             adres = ad;
             tnumber = tn;
         }
+        //Метод, который создает экземпляр структуры Person и заполняет его стандартными значениями
         public static Person GenPeop(int i)
         {
             return new Person(i.ToString(), i.ToString(), i.ToString(), i.ToString(), i.ToString(), i);
@@ -35,6 +36,7 @@ namespace LabaAlgoritms1
         {
             People = people;
         }
+        //Метод, который позволяет добавлять в структуру PersonList новую персону
         public void AddPerson(params Person[] people)
         {
             Person[] newPeople = new Person[People.Length + people.Length];
@@ -44,6 +46,7 @@ namespace LabaAlgoritms1
                 newPeople[People.Length + i] = people[i];
             People = newPeople;
         }
+        //Метод, позволяющий найти Персону по фамилии и узнать его номер телефона
         public void FindPerson(string surname)
         {
             Person pp = new Person();
@@ -66,6 +69,7 @@ namespace LabaAlgoritms1
                 Console.WriteLine($"None person founded with surname {surname}");
             }
         }
+        //Метод, позволяющий удалить персону, по его номеру в списке добавленных персон в базу данных
         public  Person[] DeletePerson(int n)
         {
             Person[] newPeople = new Person[People.Length-1];
@@ -81,6 +85,7 @@ namespace LabaAlgoritms1
             }
             return newPeople;
         }
+        //Вспомогательная функция, позволяющия понять количество добавленных персон в базу данных, исключая пять стандартных значений
         public int Count()
         {
             int n = 0;
@@ -203,6 +208,7 @@ namespace LabaAlgoritms1
             PersonList ps = new PersonList(pl);
             return ps;
         }
+        //Метод, который показывает список персон
         static void ShowTheList(ref PersonList peoplelist)
         {
             Console.Clear();
