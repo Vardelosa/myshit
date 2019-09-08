@@ -66,13 +66,13 @@ namespace LabaAlgoritms1
                 Console.WriteLine($"None person founded with surname {surname}");
             }
         }
-        public Person[] DeletePerson(int n)
+        public  Person[] DeletePerson(int n)
         {
             Person[] newPeople = new Person[People.Length-1];
             int ii = 0;
             for(int i=0 ; i<People.Length;i++)
             {
-                if(i==n)
+                if(i+1==n)
                 {
                     continue;
                 }
@@ -180,7 +180,7 @@ namespace LabaAlgoritms1
                 }
                 else
                 {
-                    personList.DeletePerson(index + 4);
+                    personList.People = personList.DeletePerson(index + 4);
                     Console.Clear();
                     Console.WriteLine("Person is deleted.\n");
 
