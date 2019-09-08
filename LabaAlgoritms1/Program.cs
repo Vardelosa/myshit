@@ -179,7 +179,7 @@ namespace LabaAlgoritms1
             bool success = Int32.TryParse(n, out index);
             if(success)
             {
-                if (index > personList.Count())
+                if (index > personList.People.Length)
                 {
                     Console.WriteLine("There is no person with such index.\n");
                 }
