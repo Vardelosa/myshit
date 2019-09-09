@@ -49,20 +49,20 @@ namespace LabaAlgoritms1
         //Метод, позволяющий найти Персону по фамилии и узнать его номер телефона
         public void FindPerson(string surname)
         {
-            Person pp = new Person();
+            Person TempPerson = new Person();
             bool isPersonFounded = false;
             for(int i=0; i<People.Length;++i)
             {
-                if(People[i].surname.ToLower() == surname.ToLower())
+                if (People[i].surname.ToLower() == surname.ToLower())
                 {
-                    pp = People[i];
+                    TempPerson = People[i];
                     isPersonFounded = true;
                     break;
                 }
             }
             if(isPersonFounded)
             {
-                Console.WriteLine($"Telephone number of {pp.surname} is {pp.tnumber}\n");
+                Console.WriteLine($"Telephone number of {TempPerson.surname} is {TempPerson.tnumber}\n");
             }
             else
             {
@@ -76,7 +76,7 @@ namespace LabaAlgoritms1
             int ii = 0;
             for(int i=0 ; i<People.Length;i++)
             {
-                if(i+1==n)
+                if(i==n)
                 {
                     continue;
                 }
@@ -86,22 +86,20 @@ namespace LabaAlgoritms1
             return newPeople;
         }
         //Вспомогательная функция, позволяющия понять количество добавленных персон в базу данных, исключая пять стандартных значений
-        public int Count()
-        {
-            int n = 0;
-            n++;
-            return n;
-        }
+        
     }
     class Program
     {
         static void Main(string[] args)
         {
-            PersonList peoplelist = InitPeopList();
-            Console.WriteLine("People DataBase: \n\n");
+            PersonList peoplelist = InitializePeopList();          
             ConsoleKey button = ConsoleKey.P;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.Clear();
+            Console.WriteLine("People DataBase Menu. Version 0.0.1. \n\n");
             do
-            {
+            {               
                 Console.WriteLine("Choose what do you want to do:\n" +
                     "Press A: to add a person\n" +
                     "Press B: to find a person\n" +
@@ -152,7 +150,6 @@ namespace LabaAlgoritms1
             {
                 p1.tnumber=number;
                 peoplelist.AddPerson(p1);
-                peoplelist.Count();
                 Console.WriteLine("Person is added to Database\n");
             }
             else
@@ -198,7 +195,7 @@ namespace LabaAlgoritms1
             }
 
         }
-        static PersonList InitPeopList()
+        static PersonList InitializePeopList()
         {
             Person[] pl = new Person[5];
             for(int i=0; i<pl.Length;++i)
